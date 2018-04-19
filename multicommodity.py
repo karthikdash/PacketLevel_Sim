@@ -12,20 +12,20 @@ from termcolor import colored
 # Adapted Dijkstra Packet Simulator for One Way Video Streaming
 
 # Automated script execution. Refer to tmuxBegin.sh
-raw_lamb= 0.001
+# raw_lamb= 0.001
 
-# try:
-#     raw_lamb = sys.argv[1]
-# except:
-#     print "Please enter lambda in this format. python multicommodity 0.001"
-#     print "----------Ending Execution----------"
-#     exit()
+try:
+    raw_lamb = sys.argv[1]
+except:
+    print "Please enter lambda in this format. python multicommodity 0.001"
+    print "----------Ending Execution----------"
+    exit()
 
 lamb = float(raw_lamb)  # Arrival lambda at the source
 
 
-limit = 500  # Total number of flows the simulation will execute
-start = 50  # Statistics are computes from this flow arrival
+limit = 50000  # Total number of flows the simulation will execute
+start = 100  # Statistics are computes from this flow arrival
 
 # In order to increase the number of flows simulated for a given time,
 # we scale down the rate requirements and link capacities.
