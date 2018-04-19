@@ -4,7 +4,7 @@ def packetSimulation(min_arrivaltime, noOfNodes, B, C, packet_size, path_final, 
                      Video_e2e, Video_e2e_Count, File_e2e, File_e2e_Count, p, s, d, flow_type, min_rate, flownumber, userpriority,
                      wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal,
                      sum_soujorn, number_soujorn, allLinks):
-    if time_service <= min_arrivaltime:
+    if True:
         for node_no in range(1, noOfNodes + 1, 1):
             for next_nodeno in range(0, len(node_links[node_no]), 1):
                 # if len(nodes_real[(node_no, node_links[node_no][next_nodeno])]) > 0 and len(nodes_nonreal[(node_no, node_links[node_no][next_nodeno])]) > 0:
@@ -126,7 +126,7 @@ def packetSimulation(min_arrivaltime, noOfNodes, B, C, packet_size, path_final, 
                                     else:
                                         nodes_nonreal = appendNonRealQueue(node_no, node_links[node_no][next_nodeno], current_nr_index, current_nr_index, nodes_nonreal, time_service)
                                     nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index].pop(0)
-        time_service = time_service + packet_size / 80000
+    time_service = time_service + packet_size / 80000
     return min_arrivaltime, noOfNodes, B, C, packet_size, path_final, nodes_real, node_links, time_service, Voice_e2e, Voice_e2e_Count,\
            Video_e2e, Video_e2e_Count, File_e2e, File_e2e_Count, p, s, d, flow_type, min_rate, flownumber, userpriority,\
            wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal, sum_soujorn, number_soujorn

@@ -154,14 +154,17 @@ def removeFlow(path_final, nodes_real, node_no, node_links, next_nodeno, time_se
     while path_final[k][0] != 0:
         if path_final[k][0] == nodes_real[(node_no, node_links[node_no][next_nodeno])][0].flownumber:
             path_final[k][2] -= 1
-            path_final[k][9] = (path_final[k][9] + nodes_real[(node_no, node_links[node_no][next_nodeno])][0].total_slot_time) / 2.0
-            if connection_type == 0:
-                Voice_e2e += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
-                Voice_e2e_Count += 1
-            elif connection_type == 1:
-                Video_e2e += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
-                Video_e2e_Count += 1
+            # path_final[k][9] = (path_final[k][9] + nodes_real[(node_no, node_links[node_no][next_nodeno])][0].total_slot_time) / 2.0
+            path_final[k][13] += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
+            path_final[k][14] += 1
+
             if path_final[k][2] < 1:
+                if connection_type == 0:
+                    Voice_e2e += path_final[k][13]/path_final[k][14]
+                    Voice_e2e_Count += 1
+                elif connection_type == 1:
+                    Video_e2e += path_final[k][13]/path_final[k][14]
+                    Video_e2e_Count += 1
                 if True:
                     s, d, min_rate, flow_type, flownumber,\
                     userpriority, blockstate, path_final,\
@@ -183,14 +186,16 @@ def removeReverseFlow(path_final, nodes_real, node_no, node_links, next_nodeno, 
     while path_final[k][0] != 0:
         if path_final[k][0] == nodes_real[(node_no, node_links[node_no][next_nodeno])][0].flownumber:
             path_final[k + 1][2] -= 1
-            path_final[k + 1][9] = (path_final[k + 1][9] + nodes_real[(node_no, node_links[node_no][next_nodeno])][0].total_slot_time) / 2.0
-            if connection_type == 0:
-                Voice_e2e += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
-                Voice_e2e_Count += 1
-            elif connection_type == 1:
-                Video_e2e += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
-                Video_e2e_Count += 1
+            # path_final[k + 1][9] = (path_final[k + 1][9] + nodes_real[(node_no, node_links[node_no][next_nodeno])][0].total_slot_time) / 2.0
+            path_final[k+1][13] += time_service - nodes_real[(node_no, node_links[node_no][next_nodeno])][0].initial_arrival_time
+            path_final[k+1][14] += 1
             if path_final[k + 1][2] < 1:
+                if connection_type == 0:
+                    Voice_e2e += path_final[k+1][13]/path_final[k+1][14]
+                    Voice_e2e_Count += 1
+                elif connection_type == 1:
+                    Video_e2e += path_final[k+1][13]/path_final[k+1][14]
+                    Video_e2e_Count += 1
                 if True:
                     s, d, min_rate, flow_type, flownumber, \
                     userpriority, blockstate, path_final, \
@@ -211,12 +216,15 @@ def removeFileFlow(path_final, nodes_nonreal, node_no, node_links, next_nodeno, 
     while path_final[k][0] != 0:
         if path_final[k][0] == nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index][0].flownumber:
             path_final[k][2] -= 1
-            File_e2e += time_service - nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index][0].noofpackets
-            File_e2e_Count += 1
+            path_final[k][13] += time_service - nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index][0].noofpackets
+            path_final[k][14] += 1
 
             if path_final[k][2] < 1:
-                sum_soujorn += time_service - path_final[k][5]
+                sum_soujorn += path_final[k][13]/path_final[k][14]
                 number_soujorn += 1
+
+                File_e2e += time_service - nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index][0].noofpackets
+                File_e2e_Count += 1
 
                 s, d, min_rate, flow_type, flownumber, \
                 userpriority, blockstate, path_final, \

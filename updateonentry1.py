@@ -46,12 +46,7 @@ def findRoute(p, s, d, flow_type, min_rate, flownumber, userpriority, s_new, d_n
                     for loop in range(0, s1-1, 1):
                         # Not sure about this loop[0] or loop[1]
                         if path_final[loop][0] == 0:
-                            # print path_final
-                            # print path1
-                            if int(flow_duration) * int(packet_datarate / scale / (packet_size - header_size)) < 1:
-                                no_of_packets = int(flow_duration) * 1
-                            else:
-                                no_of_packets = int(flow_duration) * int(packet_datarate / scale / (packet_size - header_size))
+                            no_of_packets = int(flow_duration*((packet_datarate / scale) / (packet_size - header_size)))
 
                             v = [flownumber_new, flow_type_new,
                                  no_of_packets, connection_type,
@@ -83,12 +78,7 @@ def findRoute(p, s, d, flow_type, min_rate, flownumber, userpriority, s_new, d_n
                 for loop in range(0, s1-1, 1):
                     # Not sure about this loop[0] or loop[1]
                     if path_final[loop][0] == 0:
-                        # print path_final
-                        # print path1
-                        if int(flow_duration) * int(packet_datarate / scale / (packet_size - header_size)) < 1:
-                            no_of_packets = int(flow_duration) * 1
-                        else:
-                            no_of_packets = int(flow_duration) * int(packet_datarate / scale / (packet_size - header_size))
+                        no_of_packets = int(flow_duration * ((packet_datarate / scale) / (packet_size - header_size)))
 
                         v = [flownumber_new, flow_type_new,
                             no_of_packets, connection_type,
@@ -112,11 +102,7 @@ def findRoute(p, s, d, flow_type, min_rate, flownumber, userpriority, s_new, d_n
                 # print loop
                 # Not sure about this loop[0] or loop[1]
                 if path_final[loop][0] == 0:
-                    # if int(flow_duration * (packet_datarate/scale) / packet_size) < 1:
-                    if (flow_duration/(packet_size - header_size)/scale) < 1:
-                        file_limit = 1
-                    else:
-                        file_limit = int(flow_duration/(packet_size - header_size)/scale)
+                    file_limit = int(1.0*flow_duration/(packet_size - header_size)/scale)
                     if s_new == 3 and d_new == 13:
                         satellite_link = 1
                     else:

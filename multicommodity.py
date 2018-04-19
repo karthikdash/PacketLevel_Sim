@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 from updateonentry1 import findRoute
 from Packets import Packets
@@ -7,10 +8,23 @@ from PacketTools import *
 from allocaterealupdated1 import allocaterealupdated1
 from allocatenonrealupdated1 import allocatenonrealupdated1
 from PacketSimulation import packetSimulation
+from termcolor import colored
 # Adapted Dijkstra Packet Simulator for One Way Video Streaming
 
-lamb = 0.009  # Arrival lambda at the source
-limit = 10000  # Total number of flows the simulation will execute
+# Automated script execution. Refer to tmuxBegin.sh
+raw_lamb= 0.001
+
+# try:
+#     raw_lamb = sys.argv[1]
+# except:
+#     print "Please enter lambda in this format. python multicommodity 0.001"
+#     print "----------Ending Execution----------"
+#     exit()
+
+lamb = float(raw_lamb)  # Arrival lambda at the source
+
+
+limit = 500  # Total number of flows the simulation will execute
 start = 50  # Statistics are computes from this flow arrival
 
 # In order to increase the number of flows simulated for a given time,
@@ -38,7 +52,7 @@ link_factor = 1  # Useful for increasing the link capacities
 numberOfLinks = len(link_src)  # Becuase we take bidrection links, we reverse each link
 
 caps = [2] * numberOfLinks  # Link rate in Mbps
-caps = [2, 2, 8, 8, 2, 8, 2, 8, 8, 2, 2, 2, 8, 2]  # Link rate in Mbps
+# caps = [2, 2, 8, 8, 2, 8, 2, 8, 8, 2, 2, 2, 8, 2]  # Link rate in Mbps
 link_rate_orig = np.multiply(link_factor, caps)
 
 packet_size = 512.00  # Bits
@@ -71,9 +85,9 @@ pure_link_rate = link_rate_orig
 
 # Example for 4 SD pairs [Voice_rate_SD1 Voice_rate_SD2 Voice_rate_SD3 Voice_rate_SD4]
 # In this scenario, each SD pair generates voice, video and file connections.
-voice_require = [22, 80, 22, 11] # Kbps
+voice_require = [75, 75, 75, 75] # Kbps
 video_require = [400, 400, 400, 400] # Kbps
-file_require = [300, 400, 300, 300] # Kbps
+file_require = [400, 400, 400, 400] # Kbps
 
 # Number of individual connections
 no_of_voiceConnections = len(voice_require)
@@ -373,14 +387,15 @@ arrivalratesize = np.shape(arrivalrate)[0]
 arrivalratesize1 = 1
 
 c = 0
-
+colors = ['red', 'grey', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
 while(countarrival < limit - 1):
-    print countarrival, "countarrival", packetcounter , time_service
-    if countarrival > 200:
-        displayStats(blockedvoice_alog1, totalvoice, blockedvideo_algo1,
-                     totalvideo, blocekednonrealtime_algo1, totalnonrealtime,
-                     sum_soujorn, number_soujorn, Video_e2e, Video_e2e_Count,
-                     Voice_e2e, Voice_e2e_Count, File_e2e, File_e2e_Count, scale, lamb)
+    # print countarrival, "countarrival", packetcounter , time_service
+    print lamb, colored(countarrival, np.random.choice(colors))
+    # if countarrival > 200:
+    #     displayStats(blockedvoice_alog1, totalvoice, blockedvideo_algo1,
+    #                  totalvideo, blocekednonrealtime_algo1, totalnonrealtime,
+    #                  sum_soujorn, number_soujorn, Video_e2e, Video_e2e_Count,
+    #                  Voice_e2e, Voice_e2e_Count, File_e2e, File_e2e_Count, scale, lamb)
 
     # We find the minimum get the first arriving flow and hence source node for that corresponding time
     c = flowarrivaltime.min()  # Minimum Value
@@ -595,7 +610,7 @@ while(countarrival < limit - 1):
                                          wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal,
                                          sum_soujorn, number_soujorn, False)
 
-                    if time_service <= min_arrivaltime:
+                    if True:
                         min_arrivaltime, noOfNodes, B, C, packet_size, path_final, nodes_real, node_links, time_service, Voice_e2e, Voice_e2e_Count, \
                         Video_e2e, Video_e2e_Count, File_e2e, File_e2e_Count, p, s, d, flow_type, min_rate, flownumber, userpriority, \
                         wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal, \
@@ -676,8 +691,8 @@ while(countarrival < limit - 1):
 
             rho_matx_sum = rho_matx_sum + np.multiply(new_c - old_c, np.nan_to_num(rho_matx))
             sum_c = sum_c + (new_c - old_c)
-            print (np.nanmin(rho_matx))
-            print (np.nanmax(rho_matx))
+            # print (np.nanmin(rho_matx))
+            # print (np.nanmax(rho_matx))
 
             # Debugging
             checkSystemResources(wt_matx, wt_matx_real, wt_matx_real1, path_final, orig_total_matx, orig_total_real1)
