@@ -85,33 +85,37 @@ pure_link_rate = link_rate_orig
 
 # Example for 4 SD pairs [Voice_rate_SD1 Voice_rate_SD2 Voice_rate_SD3 Voice_rate_SD4]
 # In this scenario, each SD pair generates voice, video and file connections.
+realData_require = [0, 0, 0, 0] # Kbps : We assume one packet size for the flow and has to be always admitted. Highest Priority
 voice_require = [75, 75, 75, 75] # Kbps
 video_require = [400, 400, 400, 400] # Kbps
 file_require = [400, 400, 400, 400] # Kbps
 
 # Number of individual connections
+no_of_realDataConnetions = len(realData_require)
 no_of_voiceConnections = len(voice_require)
 no_of_videoConnections = len(video_require)
 no_of_fileConnections = len(file_require)
 
-total_commodities =  no_of_voiceConnections + no_of_videoConnections + no_of_fileConnections
+total_commodities = no_of_realDataConnetions +  no_of_voiceConnections + no_of_videoConnections + no_of_fileConnections
 
-data_require = voice_require + video_require + file_require
+data_require = realData_require + voice_require + video_require + file_require
 packet_datarate = np.multiply(data_require, 10.0**3)  #bps
 payload = packet_size - header_size
 min_rate1 = np.multiply(10.0**3/payload, data_require)  # Frames per second
 
-# Video,Voice and File
-connectiontypes = 3
+# Realtime Data, Video, Voice and File
+connectiontypes = 4
 
+realData_connection_type = 3 # Realtime Data Commodity
 voice_connection_type = 0  # Realtime Commodity
 video_connection_type = 0  # Realtime Commodity
 file_connection_type = 2  # Non-realtime Commodity
 
 # Defining flow type for each S-D pair
-flow_type1 = [voice_connection_type]*no_of_voiceConnections + [video_connection_type]*no_of_videoConnections + [file_connection_type]*no_of_fileConnections
+flow_type1 = [realData_connection_type]*no_of_realDataConnetions +  [voice_connection_type]*no_of_voiceConnections + [video_connection_type]*no_of_videoConnections + [file_connection_type]*no_of_fileConnections
 arrivalrate = np.multiply(lamb, np.ones((total_commodities))) # Defining flow type for each S-D pair
 
+realData_file_size = packet_size # Bits
 voice_duration = 150  # Seconds
 video_duration = 150  # Seconds
 file_size = 7* (10**6)  # Mb
