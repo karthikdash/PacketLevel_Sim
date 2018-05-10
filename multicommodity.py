@@ -12,14 +12,14 @@ from termcolor import colored
 # Adapted Dijkstra Packet Simulator for One Way Video Streaming
 
 # Automated script execution. Refer to tmuxBegin.sh
-# raw_lamb= 0.001
+raw_lamb= 0.009
 
-try:
-    raw_lamb = sys.argv[1]
-except:
-    print "Please enter lambda in this format. python multicommodity 0.001"
-    print "----------Ending Execution----------"
-    exit()
+# try:
+#     raw_lamb = sys.argv[1]
+# except:
+#     print "Please enter lambda in this format. python multicommodity 0.001"
+#     print "----------Ending Execution----------"
+#     exit()
 
 lamb = float(raw_lamb)  # Arrival lambda at the source
 
@@ -391,11 +391,11 @@ colors = ['red', 'grey', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
 while(countarrival < limit - 1):
     # print countarrival, "countarrival", packetcounter , time_service
     print lamb, colored(countarrival, np.random.choice(colors))
-    # if countarrival > 200:
-    #     displayStats(blockedvoice_alog1, totalvoice, blockedvideo_algo1,
-    #                  totalvideo, blocekednonrealtime_algo1, totalnonrealtime,
-    #                  sum_soujorn, number_soujorn, Video_e2e, Video_e2e_Count,
-    #                  Voice_e2e, Voice_e2e_Count, File_e2e, File_e2e_Count, scale, lamb)
+    if countarrival > 200:
+        displayStats(blockedvoice_alog1, totalvoice, blockedvideo_algo1,
+                     totalvideo, blocekednonrealtime_algo1, totalnonrealtime,
+                     sum_soujorn, number_soujorn, Video_e2e, Video_e2e_Count,
+                     Voice_e2e, Voice_e2e_Count, File_e2e, File_e2e_Count, scale, lamb)
 
     # We find the minimum get the first arriving flow and hence source node for that corresponding time
     c = flowarrivaltime.min()  # Minimum Value
@@ -608,7 +608,7 @@ while(countarrival < limit - 1):
                         packetSimulation(min_arrivaltime, noOfNodes, B, C, packet_size, path_final, nodes_real, node_links, time_service, Voice_e2e, Voice_e2e_Count,
                                          Video_e2e, Video_e2e_Count, File_e2e, File_e2e_Count, p, s, d, flow_type, min_rate, flownumber, userpriority,
                                          wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal,
-                                         sum_soujorn, number_soujorn, False)
+                                         sum_soujorn, number_soujorn, True)
 
                     if True:
                         min_arrivaltime, noOfNodes, B, C, packet_size, path_final, nodes_real, node_links, time_service, Voice_e2e, Voice_e2e_Count, \
@@ -618,7 +618,7 @@ while(countarrival < limit - 1):
                         packetSimulation(min_arrivaltime, noOfNodes, B, C, packet_size, path_final, nodes_real, node_links, time_service, Voice_e2e, Voice_e2e_Count,
                                      Video_e2e, Video_e2e_Count, File_e2e, File_e2e_Count, p, s, d, flow_type, min_rate, flownumber, userpriority,
                                      wt_matx, wt_matx_real, wt_matx_real1, blockstate, orig_total_matx, orig_total_real1, scale, nodes_nonreal,
-                                     sum_soujorn, number_soujorn, True)
+                                     sum_soujorn, number_soujorn, False)
         else:  # Either new flow has arrived or all packets have been served.
             timecurrent = c  # Current Time = Arrival Time
             # print departuretime1, "departuretime1"
