@@ -220,7 +220,7 @@ def removeFileFlow(path_final, nodes_nonreal, node_no, node_links, next_nodeno, 
             path_final[k][14] += 1
 
             if path_final[k][2] < 1:
-                sum_soujorn += path_final[k][13]/path_final[k][14]
+                sum_soujorn += time_service - path_final[k][5]
                 number_soujorn += 1
 
                 File_e2e += time_service - nodes_nonreal[(node_no, node_links[node_no][next_nodeno])][current_nr_index][0].noofpackets

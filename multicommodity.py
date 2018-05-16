@@ -12,7 +12,7 @@ from termcolor import colored
 # Adapted Dijkstra Packet Simulator for One Way Video Streaming
 
 # Automated script execution. Refer to tmuxBegin.sh
-raw_lamb= 0.009
+raw_lamb= 0.01
 
 # try:
 #     raw_lamb = sys.argv[1]
