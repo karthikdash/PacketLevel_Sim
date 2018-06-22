@@ -51,5 +51,5 @@ def makeCSV(blockedvoice_alog1, totalvoice, blockedvideo_algo1,
     np.savetxt("resultsHetero" + str(lamb) + ".csv", np.array([[lamb, fracvoice_algo1,
                                                                 fracvideo_algo1, fracnonreal_algo1, sj_time,
                                                                 voice_endtoend, video_endtoend, file_endtoend
-                                                                ]]), delimiter=",", fmt="%.10f")
+                                                                ]]), delimiter=",")
     print "Success"

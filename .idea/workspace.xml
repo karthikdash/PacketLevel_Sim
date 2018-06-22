@@ -9,11 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2957740d-62cf-4df3-9d86-404251eb1ae1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.~lock.packet_new.csv#" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Matlab_Xfractions" afterPath="$PROJECT_DIR$/Matlab_Xfractions" />
-      <change beforePath="$PROJECT_DIR$/PacketTools.py" afterPath="$PROJECT_DIR$/PacketTools.py" />
-      <change beforePath="$PROJECT_DIR$/csvgen.py" afterPath="$PROJECT_DIR$/csvgen.py" />
-      <change beforePath="$PROJECT_DIR$/packet_new.csv" afterPath="$PROJECT_DIR$/packet_new.csv" />
+      <change beforePath="$PROJECT_DIR$/debugTools.py" afterPath="$PROJECT_DIR$/debugTools.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="multicommodity.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="multicommodity.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/multicommodity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="607" column="28" lean-forward="false" selection-start-line="607" selection-start-column="28" selection-end-line="607" selection-end-column="28" />
+            <state relative-caret-position="10854">
+              <caret line="603" column="11" lean-forward="false" selection-start-line="603" selection-start-column="11" selection-end-line="603" selection-end-column="11" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -61,8 +58,8 @@
       <file leaf-file-name="PacketTools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PacketTools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="241" column="35" lean-forward="true" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
+            <state relative-caret-position="4338">
+              <caret line="241" column="35" lean-forward="false" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -80,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debugTools.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="debugTools.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debugTools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="494">
+              <caret line="45" column="73" lean-forward="true" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -223,12 +220,12 @@
         <option value="$PROJECT_DIR$/results0.001.csv" />
         <option value="$PROJECT_DIR$/updateonexit.py" />
         <option value="$PROJECT_DIR$/call1.py" />
-        <option value="$PROJECT_DIR$/debugTools.py" />
         <option value="$PROJECT_DIR$/Packets.py" />
         <option value="$PROJECT_DIR$/PacketSimulation.py" />
         <option value="$PROJECT_DIR$/updateonentry1.py" />
         <option value="$PROJECT_DIR$/multicommodity.py" />
         <option value="$PROJECT_DIR$/PacketTools.py" />
+        <option value="$PROJECT_DIR$/debugTools.py" />
       </list>
     </option>
   </component>
@@ -256,7 +253,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,7 +265,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -519,7 +516,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20271683" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20209424" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3497382" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13591704" sideWeight="0.5058997" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1034,22 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debugTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/call2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="30" column="64" lean-forward="false" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dijkstra.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1088,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PacketTools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="241" column="35" lean-forward="true" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
+        <state relative-caret-position="4338">
+          <caret line="241" column="35" lean-forward="false" selection-start-line="241" selection-start-column="35" selection-end-line="241" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -1098,11 +1079,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/multicommodity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="607" column="28" lean-forward="false" selection-start-line="607" selection-start-column="28" selection-end-line="607" selection-end-column="28" />
+        <state relative-caret-position="10854">
+          <caret line="603" column="11" lean-forward="false" selection-start-line="603" selection-start-column="11" selection-end-line="603" selection-end-column="11" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="30" column="64" lean-forward="false" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debugTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="45" column="73" lean-forward="true" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
